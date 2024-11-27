@@ -7,10 +7,6 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-@app.route('/game')
-def game():
-    return render_template("game.html")
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 9128))
     app.run(host="0.0.0.0", port=port, debug=True)
