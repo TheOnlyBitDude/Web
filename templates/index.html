@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Flask Website</title>
+    
+    <!-- Link to the favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='images/icons/icon.ico') }}" type="image/x-icon">
+
     <style>
         /* General Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%; /* Make the body and html fill the full height */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
         }
 
         body {
@@ -19,10 +29,13 @@
             color: #333;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Container for content */
         .container {
+            flex: 1; /* This will take up the available space and push the footer down */
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
@@ -105,6 +118,7 @@
             padding: 20px 0;
             text-align: center;
             font-size: 0.875rem;
+            margin-top: auto; /* Push footer to the bottom */
         }
 
         /* Responsive Design */
@@ -144,7 +158,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 TheOnlyGuy. All rights reserved.</p>
+        <p>&copy; 2024 ThatOneBit. All rights reserved.</p>
     </footer>
 
 </body>
