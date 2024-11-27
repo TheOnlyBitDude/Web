@@ -49,7 +49,7 @@
             text-align: center;
         }
 
-        /* Glitchy Headings (Updated Glitch Effect) */
+        /* Glitchy Headings (Malware GDI-style effect on hover) */
         h1 {
             font-size: 2.5rem;
             color: #2d3e50;
@@ -58,37 +58,71 @@
             display: inline-block;
             font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            overflow: hidden;
         }
 
-        /* Glitch Animation (flicker and shift text) */
+        /* Malware-like Glitch Effect on Hover */
         h1:hover {
-            animation: glitch 0.8s infinite;
+            animation: malware-glitch 0.5s infinite linear;
+            color: transparent; /* Make the text transparent to show the glitching */
         }
 
-        /* Keyframes for Glitch Effect */
-        @keyframes glitch {
+        /* Keyframes for Malware Glitch Effect */
+        @keyframes malware-glitch {
             0% {
                 transform: translate(0) skew(0deg);
+                text-shadow: 0 0 2px rgba(255, 0, 0, 0.8), 0 0 5px rgba(0, 255, 0, 0.8), 0 0 10px rgba(0, 0, 255, 0.8);
                 opacity: 1;
             }
-            20% {
-                transform: translate(-5px, 5px) skew(-5deg);
-                opacity: 0.7;
+            10% {
+                transform: translate(-3px, 5px) skew(-3deg);
+                text-shadow: 0 0 3px rgba(255, 0, 0, 0.8), 0 0 7px rgba(0, 255, 0, 0.8), 0 0 10px rgba(0, 0, 255, 0.8);
+                opacity: 0.8;
             }
-            40% {
+            20% {
                 transform: translate(5px, -5px) skew(5deg);
+                text-shadow: 0 0 4px rgba(255, 0, 0, 0.9), 0 0 8px rgba(0, 255, 0, 0.9), 0 0 12px rgba(0, 0, 255, 0.9);
+                opacity: 0.6;
+            }
+            30% {
+                transform: translate(-5px, 0) skew(-2deg);
+                text-shadow: 0 0 5px rgba(255, 0, 0, 1), 0 0 10px rgba(0, 255, 0, 1), 0 0 15px rgba(0, 0, 255, 1);
                 opacity: 0.5;
             }
-            60% {
+            40% {
+                transform: translate(3px, 3px) skew(3deg);
+                text-shadow: 0 0 6px rgba(255, 0, 0, 0.9), 0 0 12px rgba(0, 255, 0, 0.9), 0 0 18px rgba(0, 0, 255, 0.9);
+                opacity: 0.7;
+            }
+            50% {
                 transform: translate(-5px, -5px) skew(-5deg);
+                text-shadow: 0 0 8px rgba(255, 0, 0, 1), 0 0 15px rgba(0, 255, 0, 1), 0 0 20px rgba(0, 0, 255, 1);
+                opacity: 0.4;
+            }
+            60% {
+                transform: translate(6px, 6px) skew(2deg);
+                text-shadow: 0 0 8px rgba(255, 0, 0, 1), 0 0 18px rgba(0, 255, 0, 1), 0 0 22px rgba(0, 0, 255, 1);
                 opacity: 0.9;
+            }
+            70% {
+                transform: translate(-6px, 0) skew(-2deg);
+                text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.8), 0 0 25px rgba(0, 0, 255, 0.8);
+                opacity: 0.3;
             }
             80% {
                 transform: translate(5px, 5px) skew(5deg);
+                text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 22px rgba(0, 255, 0, 0.8), 0 0 30px rgba(0, 0, 255, 0.8);
+                opacity: 0.5;
+            }
+            90% {
+                transform: translate(0, 0) skew(0deg);
+                text-shadow: 0 0 12px rgba(255, 0, 0, 1), 0 0 25px rgba(0, 255, 0, 1), 0 0 35px rgba(0, 0, 255, 1);
                 opacity: 0.6;
             }
             100% {
                 transform: translate(0) skew(0deg);
+                text-shadow: 0 0 2px rgba(255, 0, 0, 0.8), 0 0 5px rgba(0, 255, 0, 0.8), 0 0 10px rgba(0, 0, 255, 0.8);
                 opacity: 1;
             }
         }
