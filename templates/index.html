@@ -49,95 +49,23 @@
             text-align: center;
         }
 
-        /* Glitchy Headings (Malware GDI-style effect on hover with databend) */
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Headings */
         h1 {
             font-size: 2.5rem;
             color: #2d3e50;
             margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            overflow: hidden;
         }
 
-        /* Malware-like Glitch Effect with Databend on Hover */
-        h1:hover {
-            animation: malware-glitch 0.5s infinite linear, databend 0.5s infinite linear;
-            color: transparent; /* Make the text transparent to show the glitching */
-        }
-
-        /* Keyframes for Malware Glitch Effect */
-        @keyframes malware-glitch {
-            0% {
-                transform: translate(0) skew(0deg);
-                text-shadow: 0 0 2px rgba(255, 0, 0, 0.8), 0 0 5px rgba(0, 255, 0, 0.8), 0 0 10px rgba(0, 0, 255, 0.8);
-            }
-            10% {
-                transform: translate(-3px, 5px) skew(-3deg);
-                text-shadow: 0 0 3px rgba(255, 0, 0, 0.8), 0 0 7px rgba(0, 255, 0, 0.8), 0 0 10px rgba(0, 0, 255, 0.8);
-            }
-            20% {
-                transform: translate(5px, -5px) skew(5deg);
-                text-shadow: 0 0 4px rgba(255, 0, 0, 0.9), 0 0 8px rgba(0, 255, 0, 0.9), 0 0 12px rgba(0, 0, 255, 0.9);
-            }
-            30% {
-                transform: translate(-5px, 0) skew(-2deg);
-                text-shadow: 0 0 5px rgba(255, 0, 0, 1), 0 0 10px rgba(0, 255, 0, 1), 0 0 15px rgba(0, 0, 255, 1);
-            }
-            40% {
-                transform: translate(3px, 3px) skew(3deg);
-                text-shadow: 0 0 6px rgba(255, 0, 0, 0.9), 0 0 12px rgba(0, 255, 0, 0.9), 0 0 18px rgba(0, 0, 255, 0.9);
-            }
-            50% {
-                transform: translate(-5px, -5px) skew(-5deg);
-                text-shadow: 0 0 8px rgba(255, 0, 0, 1), 0 0 15px rgba(0, 255, 0, 1), 0 0 20px rgba(0, 0, 255, 1);
-            }
-            60% {
-                transform: translate(6px, 6px) skew(2deg);
-                text-shadow: 0 0 8px rgba(255, 0, 0, 1), 0 0 18px rgba(0, 255, 0, 1), 0 0 22px rgba(0, 0, 255, 1);
-            }
-            70% {
-                transform: translate(-6px, 0) skew(-2deg);
-                text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(0, 255, 0, 0.8), 0 0 25px rgba(0, 0, 255, 0.8);
-            }
-            80% {
-                transform: translate(5px, 5px) skew(5deg);
-                text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 22px rgba(0, 255, 0, 0.8), 0 0 30px rgba(0, 0, 255, 0.8);
-            }
-            90% {
-                transform: translate(0, 0) skew(0deg);
-                text-shadow: 0 0 12px rgba(255, 0, 0, 1), 0 0 25px rgba(0, 255, 0, 1), 0 0 35px rgba(0, 0, 255, 1);
-            }
-            100% {
-                transform: translate(0) skew(0deg);
-                text-shadow: 0 0 2px rgba(255, 0, 0, 0.8), 0 0 5px rgba(0, 255, 0, 0.8), 0 0 10px rgba(0, 0, 255, 0.8);
-            }
-        }
-
-        /* Databend Effect (horizontal tearing and displacing) */
-        @keyframes databend {
-            0% {
-                transform: translateX(0);
-                clip-path: inset(0 0 0 0);
-            }
-            25% {
-                transform: translateX(-5px);
-                clip-path: inset(0 0 10% 0);
-            }
-            50% {
-                transform: translateX(5px);
-                clip-path: inset(0 0 20% 0);
-            }
-            75% {
-                transform: translateX(-5px);
-                clip-path: inset(0 0 10% 0);
-            }
-            100% {
-                transform: translateX(0);
-                clip-path: inset(0 0 0 0);
-            }
+        h2 {
+            font-size: 1.8rem;
+            color: #34495e;
+            margin-bottom: 15px;
         }
 
         /* Paragraph */
@@ -152,33 +80,10 @@
         a {
             color: #3498db;
             text-decoration: none;
-            position: relative;
-            font-weight: bold;
-            display: inline-block;
-        }
-
-        /* Glitchy Effect for Links */
-        a::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #ff3c3c;
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.4s ease-out;
-        }
-
-        a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
         }
 
         a:hover {
-            color: #ff3c3c;
-            animation: glitch 0.3s infinite;
+            text-decoration: underline;
         }
 
         /* Button */
@@ -191,30 +96,10 @@
             border-radius: 4px;
             text-align: center;
             text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300%;
-            height: 300%;
-            background-color: #ff3c3c;
-            transition: all 0.4s ease;
-            transform: translate(-50%, -50%) scale(0);
-            border-radius: 50%;
-        }
-
-        .btn:hover::before {
-            transform: translate(-50%, -50%) scale(1);
+            transition: background-color 0.3s ease;
         }
 
         .btn:hover {
-            color: #fff;
             background-color: #2980b9;
         }
 
