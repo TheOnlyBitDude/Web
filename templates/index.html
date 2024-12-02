@@ -3,158 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Flask Website</title>
-    
-    <!-- Link to the favicon -->
+    <title>Index.</title>
     <link rel="icon" href="{{ url_for('static', filename='images/icons/icon.ico') }}" type="image/x-icon">
-
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%; /* Make the body and html fill the full height */
-            display: flex;
-            flex-direction: column; /* Stack elements vertically */
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Container for content */
-        .container {
-            flex: 1; /* This will take up the available space and push the footer down */
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* Headings */
-        h1 {
-            font-size: 2.5rem;
-            color: #2d3e50;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            color: #34495e;
-            margin-bottom: 15px;
-        }
-
-        /* Paragraph */
-        p {
-            font-size: 1rem;
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 20px;
-        }
-
-        /* Links */
-        a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Button */
-        .btn {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
-            padding: 10px 20px;
-            font-size: 1rem;
-            border-radius: 4px;
-            text-align: center;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #2980b9;
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 40px 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            font-size: 0.875rem;
-            margin-top: auto; /* Push footer to the bottom */
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            p {
-                font-size: 0.9rem;
-            }
-
-            .container {
-                padding: 10px;
-            }
-        }
-
-    </style>
 </head>
 <body>
 
     <header>
-        <h1>Your Flask Website</h1>
+        <h1>Index.</h1>
     </header>
 
-    <div class="container">
-        <div class="main-content">
-            <h1>Heading</h1>
-            <h2>Subheading</h2>
-            <p>Paragraph.</p>
-            <a href="#" class="btn">Click Me</a>
-        </div>
+    <div>
+            <h2>List of directories:</h2>
+            <a href="/projects">/Projects</a>
     </div>
 
     <footer>
