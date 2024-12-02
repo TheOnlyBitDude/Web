@@ -5,6 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index.</title>
     <link rel="icon" href="{{ url_for('static', filename='images/icons/icon.ico') }}" type="image/x-icon">
+    <style>
+        /* Basic styling for body */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e1e;
+            color: #dcdcdc;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Styling the header */
+        header {
+            text-align: center;
+            background-color: #333;
+            color: #39b54a;
+            width: 100%;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Main content style */
+        div {
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-top: 30px;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #444;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #dcdcdc;
+            margin-bottom: 20px;
+        }
+
+        /* Styling the link */
+        a {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+            color: #39b54a;
+            text-decoration: none;
+            border-bottom: 2px solid #39b54a;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        a:hover {
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
+        }
+
+        /* Footer style */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #39b54a;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
@@ -13,12 +101,15 @@
     </header>
 
     <div>
-            <h2>List of directories:</h2>
-            <a href="/projects">/Projects</a>
+        <h2>List of directories:</h2>
+
+        <!-- Link to /projects -->
+        <a href="/projects">/Projects</a>
     </div>
 
     <footer>
         <p>&copy; 2024 ThatOneBitGuy. All rights reserved.</p>
+        <p>View code on <a href="https://github.com/ThatOneBitGuy" target="_blank">GitHub</a></p>
     </footer>
 
 </body>
