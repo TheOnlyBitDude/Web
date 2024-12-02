@@ -8,8 +8,9 @@
     <style>
         /* Basic styling for body */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7f6;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e1e;
+            color: #dcdcdc;
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,46 +18,53 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            overflow: hidden;
         }
 
         /* Styling the header */
         header {
             text-align: center;
             background-color: #333;
-            color: white;
+            color: #39b54a;
             width: 100%;
             padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
             font-size: 2.5em;
             margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         /* Main content style */
         div {
-            background-color: #ffffff;
+            background-color: #2d2d2d;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             text-align: center;
             margin-top: 30px;
             width: 100%;
-            max-width: 400px;
+            max-width: 500px;
+            border: 1px solid #444;
         }
 
         h2 {
             font-size: 1.8em;
-            color: #333;
+            color: #dcdcdc;
             margin-bottom: 20px;
         }
 
         /* Styling the dropdown */
         select {
+            font-family: 'Courier New', Courier, monospace;
             font-size: 1.1em;
-            padding: 10px;
-            background-color: #f0f0f0;
-            border: 2px solid #ddd;
+            padding: 12px;
+            background-color: #333;
+            color: #39b54a;
+            border: 2px solid #555;
             border-radius: 5px;
             width: 100%;
             max-width: 300px;
@@ -65,7 +73,12 @@
         }
 
         select:hover {
-            border-color: #666;
+            border-color: #39b54a;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #39b54a;
         }
 
         /* Footer style */
@@ -73,10 +86,20 @@
             margin-top: 50px;
             text-align: center;
             color: #777;
+            font-size: 0.9em;
         }
 
         footer p {
-            font-size: 0.9em;
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #39b54a;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -92,13 +115,14 @@
         <!-- Dropdown menu for redirection -->
         <select id="projectSelect">
             <option value="">Select a project</option>
-            <option value="/chasmora.">chasmora</option>
+            <option value="/chasmora.">/chasmora</option>
             <!-- Add more projects here as needed -->
         </select>
     </div>
 
     <footer>
         <p>&copy; 2024 ThatOneBitGuy. All rights reserved.</p>
+        <p>View code on <a href="https://github.com/ThatOneBitGuy" target="_blank">GitHub</a></p>
     </footer>
 
     <script>
