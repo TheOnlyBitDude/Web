@@ -11,7 +11,7 @@ def home():
 def projects():
     return render_template("projects.html")
 
-@app.route("/projects/chasmora.")
+@app.route("/chasmora.")
 def chasmora():
     return render_template("chasmora_home.html")
 
