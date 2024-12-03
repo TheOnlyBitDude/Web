@@ -8,44 +8,53 @@
 
     <!-- Internal CSS for styling -->
     <style>
-        /* Apply a cool, blueish dark theme */
+        /* Basic styling for body */
         body {
-            font-family: 'Papyrus', sans-serif;
-            background-color: #1a1f26; /* Dark blueish-gray background */
-            color: #d1d8e0; /* Light, cool text color */
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e1e; /* Dark background */
+            color: #dcdcdc; /* Light text color */
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center; /* Center horizontally */
             align-items: center;     /* Center vertically */
-            height: 100vh;           /* Make the body take up full viewport height */
+            height: 100vh;           /* Full viewport height */
             text-align: center;
             flex-direction: column;  /* Stack the content vertically */
             overflow: hidden;        /* Disable scrollbars */
         }
 
         header {
-            background-color: #263140; /* Slightly lighter dark blueish background for header */
-            padding: 20px;
+            background-color: #333; /* Dark background for header */
+            color: #39b54a; /* Green text color for the header */
             width: 100%;
-            border-bottom: 2px solid #d1d8e0; /* Light border under header */
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.5em;
             margin: 0;
-            color: #d1d8e0; /* Light, cool text for the header */
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         div {
-            padding: 30px;
-            max-width: 900px;  /* Restrict max width to prevent stretching */
+            background-color: #2d2d2d; /* Dark background for the content */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-top: 30px;
             width: 100%;
+            max-width: 900px; /* Restrict max width */
+            border: 1px solid #444; /* Subtle border around the content */
         }
 
         h2 {
             font-size: 2rem;
-            color: #a0b0c0; /* Light grayish-blue for subheadings */
+            color: #dcdcdc; /* Light text color for subheading */
+            margin-bottom: 20px;
         }
 
         p {
@@ -55,20 +64,22 @@
         }
 
         footer {
-            background-color: #263140; /* Same blueish background for footer */
+            background-color: #333; /* Dark footer background */
+            color: #777; /* Lighter gray text */
+            font-size: 0.9em;
             padding: 15px;
             width: 100%;
-            color: #a0b0c0; /* Light grayish-blue text for footer */
-            border-top: 2px solid #d1d8e0;
+            margin-top: 50px;
+            border-top: 1px solid #444;
         }
 
         footer a {
-            color: #d1d8e0;
+            color: #39b54a; /* Green link color */
             text-decoration: none;
         }
 
         footer a:hover {
-            color: #7fa3b3; /* Light blue hover effect for links */
+            text-decoration: underline; /* Underline on hover */
         }
     </style>
 </head>
@@ -85,8 +96,8 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 ThatOneBitGuy. All rights reserved.</p>
-        <p>View code on <a href="https://github.com/ThatOneBitGuy" target="_blank">GitHub</a></p>
+        <p>&copy; 2024 ThatOneBitDude. All rights reserved.</p>
+        <p>View code on <a href="https://github.com/ThatOneBitDude" target="_blank">GitHub</a></p>
     </footer>
 
 </body>
