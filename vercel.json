@@ -7,5 +7,11 @@
   ],
   "env": {
     "FLASK_APP": "app.py"
-  }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/app.py"
+    }
+  ]
 }
