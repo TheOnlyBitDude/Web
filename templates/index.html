@@ -19,7 +19,7 @@
             height: 100vh;
             overflow: hidden;
         }
-        
+
         header {
             text-align: center;
             background-color: #333;
@@ -54,18 +54,27 @@
             margin-bottom: 20px;
         }
 
-        a {
+        select {
             font-family: 'Courier New', Courier, monospace;
             font-size: 1.1em;
+            padding: 12px;
+            background-color: #333;
             color: #39b54a;
-            text-decoration: none;
-            border-bottom: 2px solid #39b54a;
-            transition: color 0.3s ease, border-bottom 0.3s ease;
+            border: 2px solid #555;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 300px;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
         }
 
-        a:hover {
-            color: #ffffff;
-            border-bottom: 2px solid #ffffff;
+        select:hover {
+            border-color: #39b54a;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #39b54a;
         }
 
         footer {
@@ -92,7 +101,7 @@
 <body>
 
     <header>
-        <h1>Index.</h1>
+        <h1>Index</h1>
     </header>
 
     <div>
