@@ -54,27 +54,17 @@
             margin-bottom: 20px;
         }
 
-        select {
+        div a {
             font-family: 'Courier New', Courier, monospace;
             font-size: 1.1em;
-            padding: 12px;
-            background-color: #333;
             color: #39b54a;
-            border: 2px solid #555;
-            border-radius: 5px;
-            width: 100%;
-            max-width: 300px;
-            cursor: pointer;
-            transition: border-color 0.3s ease;
+            text-decoration: none;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
         }
 
-        select:hover {
-            border-color: #39b54a;
-        }
-
-        select:focus {
-            outline: none;
-            border-color: #39b54a;
+        div a:hover {
+            color: ##39b54a;
+            border-bottom: 2px solid #39b54a;
         }
 
         footer {
@@ -94,7 +84,8 @@
         }
 
         footer a:hover {
-            text-decoration: underline;
+            border-bottom: 2px solid #39b54a;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
         }
     </style>
 </head>
