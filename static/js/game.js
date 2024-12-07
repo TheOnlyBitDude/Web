@@ -1,106 +1,130 @@
-// Basic game setup
+import pygame from 'pygame';
+import random from 'random';
+import math from 'math';
 
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
+// Initialize pygame
+pygame.init();
 
-// Player setup
-const player = {
-    x: 400,
-    y: 300,
-    width: 50,
-    height: 50,
-    speed: 5,
-    hp: 100,
-    color: "blue"
-};
+// Screen setup
+const screen = pygame.display.set_mode((800, 600));
+pygame.display.set_caption('Undertale Battle');
 
-// Bullet setup
-const bullets = [];
-const bulletSpeed = 6.5;
-const bulletImage = new Image();
-bulletImage.src = '/static/images/bullet.png';
+// Colors
+const WHITE = (255, 255, 255);
+const RED = (255, 0, 0);
+const BLUE = (0, 0, 255);
 
-// Handle key press
-let keys = {};
+// Fonts
+const font = pygame.font.SysFont('Arial', 30);
 
-document.addEventListener("keydown", (e) => {
-    keys[e.key] = true;
-});
-document.addEventListener("keyup", (e) => {
-    keys[e.key] = false;
-});
+
+// Player class
+class Player extends pygame.sprite.Sprite {
+    constructor() {
+        super();
+        this.image = pygame.Surface((50, 50));
+        this.image.fill(BLUE);
+        this.rect = this.image.get_rect();
+        this.rect.center = (400, 300);
+        this.hp = 100;
+    }
+
+    update() {
+        const keys = pygame.key.get_pressed();
+        if (keys[pygame.K_LEFT]) {
+            this.rect.x -= 5;
+        }
+        if (keys[pygame.K_RIGHT]) {
+            this.rect.x += 5;
+        }
+        if (keys[pygame.K_UP]) {
+            this.rect.y -= 5;
+        }
+        if (keys[pygame.K_DOWN]) {
+            this.rect.y += 5;
+        }
+    }
+}
+
+
+// Bullet (enemy projectile)
+class Bullet extends pygame.sprite.Sprite {
+    constructor(x, y, player) {
+        super();
+        this.image = pygame.image.load("bullet.png");
+        this.rect = this.image.get_rect();
+        this.rect.center = (x, y);
+
+        // Direction vector (bullet -> player)
+        this.dx = player.rect.centerx - this.rect.centerx;
+        this.dy = player.rect.centery - this.rect.centery;
+
+        // Normalize the direction vector
+        const length = Math.sqrt(this.dx ** 2 + this.dy ** 2);
+        this.dx /= length;
+        this.dy /= length;
+
+        // Speed (change this to make the bullet faster/slower)
+        this.speed = 6.5;
+    }
+
+    update() {
+        // Move the bullet toward the player
+        this.rect.x += this.dx * this.speed;
+        this.rect.y += this.dy * this.speed;
+
+        // If the bullet moves off-screen, remove it
+        if (this.rect.x < -30 || this.rect.x > 830 || this.rect.y < -30 || this.rect.y > 630) {
+            this.kill();
+        }
+    }
+}
+
 
 // Game loop
-function gameLoop() {
-    updateGame();
-    drawGame();
-    requestAnimationFrame(gameLoop);
-}
+const player = new Player();
+const all_sprites = new pygame.sprite.Group(player);
+const bullets = new pygame.sprite.Group();
 
-function updateGame() {
-    if (keys["ArrowLeft"]) player.x -= player.speed;
-    if (keys["ArrowRight"]) player.x += player.speed;
-    if (keys["ArrowUp"]) player.y -= player.speed;
-    if (keys["ArrowDown"]) player.y += player.speed;
+let running = true;
+const clock = pygame.time.Clock();
+let atk_ = 1;
 
-    // Spawn bullet randomly
-    if (Math.random() < 0.075) {
-        spawnBullet();
-    }
-
-    // Update bullet positions
-    for (let i = bullets.length - 1; i >= 0; i--) {
-        let bullet = bullets[i];
-        bullet.x += bullet.dx * bulletSpeed;
-        bullet.y += bullet.dy * bulletSpeed;
-
-        // Collision detection
-        if (collides(player, bullet)) {
-            player.hp -= 10;
-            bullets.splice(i, 1);
-        }
-
-        // Remove bullet if out of bounds
-        if (bullet.x < -30 || bullet.x > 830 || bullet.y < -30 || bullet.y > 630) {
-            bullets.splice(i, 1);
+while (running) {
+    for (const event of pygame.event.get()) {
+        if (event.type === pygame.QUIT) {
+            running = false;
         }
     }
 
-    // Update HP display
-    document.getElementById('hp').innerText = 'HP: ' + player.hp;
+    if (atk_ === 1) {
+        if (random.random() < 0.075) {
+            // Spawn the bullet at a random position and pass the player object for direction calculation
+            const bullet = new Bullet(random.randint(0, 800), 0, player);
+            bullets.add(bullet);
+            all_sprites.add(bullet);
+        }
+    }
+
+    // Update game state
+    all_sprites.update();
+
+    // Collision detection
+    if (pygame.sprite.spritecollide(player, bullets, true)) {
+        player.hp -= 10;  // Example damage
+    }
+
+    // Draw everything
+    screen.fill(WHITE);
+    all_sprites.draw(screen);
+
+    // Draw HP
+    const hp_text = font.render(`HP: ${player.hp}`, true, (0, 0, 0));
+    screen.blit(hp_text, (10, 10));
+
+    pygame.display.flip();
+    clock.tick(60);
 }
 
-function drawGame() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+pygame.quit();
 
-    // Draw player
-    ctx.fillStyle = player.color;
-    ctx.fillRect(player.x, player.y, player.width, player.height);
-
-    // Draw bullets
-    bullets.forEach(bullet => {
-        ctx.drawImage(bulletImage, bullet.x, bullet.y, 30, 30);
-    });
-}
-
-// Bullet spawning
-function spawnBullet() {
-    let bullet = {
-        x: Math.random() * canvas.width,
-        y: 0,
-        dx: (player.x - Math.random() * canvas.width) / 100, // Bullet direction
-        dy: (player.y - Math.random() * canvas.height) / 100
-    };
-    bullets.push(bullet);
-}
-
-// Collision detection
-function collides(player, bullet) {
-    return bullet.x < player.x + player.width &&
-           bullet.x + 30 > player.x &&
-           bullet.y < player.y + player.height &&
-           bullet.y + 30 > player.y;
-}
-
-// Start game loop
-gameLoop();
