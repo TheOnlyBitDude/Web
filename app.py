@@ -15,6 +15,10 @@ def projects():
 def chasmora():
     return render_template("chasmora_home.html")
 
+@app.route("/undertale")
+def undertale():
+    return render_template("undertale.html")
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 9128))
     app.run(host="0.0.0.0", port=port, debug=True)
