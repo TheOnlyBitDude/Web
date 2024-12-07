@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link rel="icon" href="{{ url_for('static', filename='images/icons/icon.ico') }}" type="image/x-icon">
-
     <style>
         body {
             font-family: 'Courier New', Courier, monospace;
@@ -14,15 +13,15 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             overflow: hidden;
         }
-
+        
         header {
+            text-align: center;
             background-color: #333;
             color: #39b54a;
             width: 100%;
@@ -30,7 +29,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
 
-        header h1 {
+        h1 {
             font-size: 2.5em;
             margin: 0;
             letter-spacing: 2px;
@@ -45,30 +44,39 @@
             text-align: center;
             margin-top: 30px;
             width: 100%;
-            max-width: 900px;
+            max-width: 500px;
             border: 1px solid #444;
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 1.8em;
             color: #dcdcdc;
             margin-bottom: 20px;
         }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin: 15px 0;
+        a {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+            color: #39b54a;
+            text-decoration: none;
+            border-bottom: 2px solid #39b54a;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+        }
+
+        a:hover {
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
         }
 
         footer {
-            background-color: #333;
+            margin-top: 50px;
+            text-align: center;
             color: #777;
             font-size: 0.9em;
-            padding: 15px;
-            width: 100%;
-            margin-top: 50px;
-            border-top: 1px solid #444;
+        }
+
+        footer p {
+            margin: 10px 0;
         }
 
         footer a {
